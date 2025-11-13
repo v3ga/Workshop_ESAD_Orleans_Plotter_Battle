@@ -13,8 +13,7 @@ import { WebSocketServer } from "ws";
 import { parse } from "url";
 
 // --------------------------------------------
-const __DEBUG__     = true;
-
+const __DEBUG__     = false;
 
 // --------------------------------------------
 const SERVER_IP     = '192.168.1.12';
@@ -81,6 +80,7 @@ function processQueue()
         py = spawn("python3", ["wait.py", 3]);
     else 
         py = spawn("python3", ["plot-axidraw.py", svg]);
+
 
     py.stdout.on("data", (data) => console.log(data.toString()));
     py.stderr.on("data", (data) => console.error("Erreur Python:", data.toString()));

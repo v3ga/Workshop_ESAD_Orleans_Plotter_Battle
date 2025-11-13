@@ -31,7 +31,7 @@ function setup()
 }
 
 // ----------------------------------------
-async function draw() 
+function draw() 
 {
   background(255);
   randomSeed(12345);
@@ -39,6 +39,7 @@ async function draw()
   if (bDoPlot)
     beginRecordSVG(this);
 
+  // ----------------------------------------
   // <début> Partie éditable pour le dessin
   let margin = 0.1;
   let marginPx = margin*width;
@@ -49,12 +50,12 @@ async function draw()
     circle(random(marginPx,width-marginPx), random(marginPx,height-marginPx), 60);
   }
   // <fin> Partie éditable pour le dessin
-
+  // ----------------------------------------
 
   if (bDoPlot)
   {
     svgToPlot = endRecordSVG();
-    await plot(svgToPlot);
+    plot(svgToPlot);
     bDoPlot = false;
   }
 }

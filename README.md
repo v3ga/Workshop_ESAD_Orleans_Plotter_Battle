@@ -11,4 +11,10 @@ Entre performance et expérimentation, *Plotter Battle* interroge la frontière 
 ### Journée 03
 ### Journée 04
 
+
+## Installation des outils
+### VSCode
+### p5.vscode
+https://youtu.be/vj9nDja8ZdQ?si=d5z4wxoc5rB0aYqG&t=136
+
 ## Ressources

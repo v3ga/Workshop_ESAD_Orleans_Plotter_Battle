@@ -1,4 +1,5 @@
 let SERVER_ADDRESS = "";
+
 // ----------------------------------------
 function connect()
 {
@@ -22,29 +23,34 @@ function connect()
   };
 }
 
+
+
 // ----------------------------------------
-async function call(end_point, data={})
+function call(end_point, data={}, cbDone)
 {
-  let response = await fetch(`http://${SERVER_ADDRESS}/${end_point}`, 
+  fetch(`http://${SERVER_ADDRESS}/${end_point}`, 
   {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
-    });
-    let result = await response.json();
+  })
+  .then( response=>response.json() )
+  .then( result=>{
+    if (isFunction(cbDone)) 
+      cbDone(result)
+  })
 }
 
 // ----------------------------------------
-async function plot(svg)
+function plot(svg,cbDone)
 {
-  console.log(`plot`)
-  let result = await call('plot', { svg : svg, id: clientId });
+  call('plot', { svg : svg, id: clientId }, cbDone);
 }
 
 // ----------------------------------------
-async function removeItemQueue(id)
+function removeItemQueue(id)
 {
-  let result = await call('remove', {id:id});
+  call('remove', {id:id});
 }
 
 // ----------------------------------------
@@ -98,4 +104,10 @@ function getClientId()
     localStorage.setItem("clientId", clientId);
   }
   return clientId;
+}
+
+// ----------------------------------------
+function isFunction(f)
+{
+    return typeof f === "function";
 }
