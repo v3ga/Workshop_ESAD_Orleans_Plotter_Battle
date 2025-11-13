@@ -18,7 +18,7 @@ function connect()
     else if (data.status == "queue-infos")
     {
       updateLayoutInfos(data.queue);
-      console.log(data.queue)
+      //console.log(data.queue)
     }
   };
 }
