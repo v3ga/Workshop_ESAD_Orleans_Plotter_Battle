@@ -13,7 +13,7 @@ import { WebSocketServer } from "ws";
 import { parse } from "url";
 
 // --------------------------------------------
-const __DEBUG__     = false;
+const __DEBUG__     = true;
 
 // --------------------------------------------
 const SERVER_IP     = '192.168.1.12';
@@ -24,7 +24,7 @@ const app       = express();
 
 // --------------------------------------------
 app.use(cors());
-app.use(bodyParser.json({ limit: "10mb" }));
+app.use(bodyParser.json({ limit: "50mb" }));
 app.use(express.static("public"));
 
 // --------------------------------------------
