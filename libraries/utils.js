@@ -1,8 +1,47 @@
 let SERVER_ADDRESS = "";
+let socket, clientId, svgToPlot, bCreateSvg = false, bSaveSvg=false, bPlotSvg=false;
+
+// ----------------------------------------
+function prepare_sketch(canvas,noLoop_=true)
+{
+  if (noLoop_) noLoop();
+  canvas.elt.removeAttribute('style');
+  canvas.parent('container-canvas')
+  setSvgResolutionDPCM(DPCM);
+  installUI();
+  connect();
+}
+
+// ----------------------------------------
+function beginSVG()
+{
+  if (bSaveSvg || bPlotSvg || !isLooping())
+  {
+    bCreateSvg = true;
+    beginRecordSVG(this);
+  }
+}
+
+// ----------------------------------------
+function endSVG()
+{
+  if (bCreateSvg)
+  {
+    svgToPlot = endRecordSVG();
+    if (bSaveSvg) saveSVG(svgToPlot, "export.svg");
+    if (bPlotSvg) plot(svgToPlot);
+
+    bCreateSvg = false;
+    bSaveSvg = false;
+    bPlotSvg = false;
+  }
+
+}
 
 // ----------------------------------------
 function connect()
 {
+  clientId = getClientId();
   SERVER_ADDRESS = `${SERVER_IP}:${SERVER_PORT}`
   socket = new WebSocket(`ws://${SERVER_ADDRESS}?clientId=${clientId}&pseudo=${PSEUDO}`);
   socket.onmessage = (msg) => 
@@ -37,7 +76,35 @@ function connect()
   */
 }
 
+// ----------------------------------------
+function installUI()
+{
+  document.getElementById('btn-save-svg').addEventListener('click', e=>
+  {
+    if (svgToPlot)
+      saveSVG(svgToPlot, "export.svg");
+  });
+  document.getElementById('btn-plot-svg').addEventListener('click', e=>{
+    if (svgToPlot)
+      plot(svgToPlot);
+  });
+  document.getElementById('btn-draw').setAttribute('style', `display:${isLooping() ? 'none' : 'inline-block'}` );
+  document.getElementById('btn-draw').addEventListener('click', e=>redraw());
+}
 
+// ----------------------------------------
+function saveSVG(svgContent,filename)
+{
+    const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${PSEUDO}_${filename}`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
 
 // ----------------------------------------
 function call(end_point, data={}, cbDone)
@@ -135,6 +202,36 @@ function formatTimestamp(ts)
     return new Date(ts).toLocaleString();
 }
   
+function getBBoxWithTransform(el, svgRoot) {
+  const bbox = el.getBBox();         // bbox locale
+  const m = el.getCTM();              // transformation cumulative (local → SVG)
+  const p = svgRoot.createSVGPoint(); // point utilitaire
+
+  // 4 coins du rectangle local
+  const corners = [
+    [bbox.x, bbox.y],
+    [bbox.x + bbox.width, bbox.y],
+    [bbox.x, bbox.y + bbox.height],
+    [bbox.x + bbox.width, bbox.y + bbox.height]
+  ];
+
+  // Transformation des coins
+  const transformed = corners.map(([x, y]) => {
+    p.x = x;
+    p.y = y;
+    return p.matrixTransform(m);
+  });
+
+  const xs = transformed.map(pt => pt.x);
+  const ys = transformed.map(pt => pt.y);
+
+  return {
+    x: Math.min(...xs),
+    y: Math.min(...ys),
+    width: Math.max(...xs) - Math.min(...xs),
+    height: Math.max(...ys) - Math.min(...ys)
+  };
+}
 
 function getGlobalSvgBBoxFromString(svgString) {
   // 1. Parse la string en SVG DOM
@@ -152,12 +249,27 @@ function getGlobalSvgBBoxFromString(svgString) {
   let minX = Infinity, minY = Infinity;
   let maxX = -Infinity, maxY = -Infinity;
 
-  svg.querySelectorAll("*").forEach(el => 
+  console.log(svgString);
+  console.log(svg.getScreenCTM())
+  svg.querySelectorAll(`circle,
+  ellipse,
+  rect,
+  line,
+  polyline,
+  polygon,
+  path,
+  text,
+  image,
+  use
+  `).forEach(el => 
   {
     if (typeof el.getBBox === "function") {
       try {
-        const box = el.getBBox();
-        if (!box) return;
+        //const box = el.getBBox();
+        //if (!box) return;
+        console.log( el.getCTM() )
+        const box = getBBoxWithTransform(el,svg);
+
 
         minX = Math.min(minX, box.x);
         minY = Math.min(minY, box.y);

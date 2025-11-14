@@ -21,16 +21,38 @@ body
 
 canvas 
 {
+    flex: 1;
     display:  block;
     box-shadow: var(--canvas-shadow);
     border-radius: 4px;
-    height:   100%;
+}
+
+button
+{
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#container-canvas-menu
+{
+  display : flex;
+  flex-direction: column;
+  height:   90%;
+  gap : var(--space);
 }
 
 #container-canvas
 {
+  display:  flex;
   height:   100%;
 }
+
+#container-menu #btn-draw
+{
+  display : none;
+} 
+
+
 
 #container-queue-infos
 {

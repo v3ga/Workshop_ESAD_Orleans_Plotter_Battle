@@ -12,7 +12,8 @@ const SERVER_PORT   = 3000; // à changer en fonction
 const DIM_SHEET = {width:21.0,height:29.7}; // cm
 const DPCM = 30;
 
-
+// ----------------------------------------
+let prevx,prevy;
 // ----------------------------------------
 function setup() 
 {
@@ -29,13 +30,17 @@ function draw()
 
   // ----------------------------------------
   // <début> Partie éditable pour le dessin
-  let margin = 0.1;
-  let marginPx = margin*width;
-  noFill();
   stroke(0);
-  for (let i=0;i<3;i++)
+  let margin = 0.1*width;
+  for (let i=0;i<100;i++)
   {
-    circle(random(marginPx,width-marginPx), random(marginPx,height-marginPx), 60);
+    let x1 = prevx??random(margin,width-margin);
+    let y1 = prevy??random(margin,height-margin);
+    let x2 = random(margin,width-margin);
+    let y2 = random(margin,height-margin);
+    line(x1,y1,x2,y2);
+    prevx = x2;
+    prevy = y2;
   }
 
   // <fin> Partie éditable pour le dessin
