@@ -50,8 +50,8 @@ How to use p5.js with Visual Studio Code / Tim Rodenbröker](https://youtu.be/vj
 ### p5.js : libraries additionnelles
 En plus de la librairie [p5.js](https://p5js.org/), nous allons utiliser d'autres librairies annexes qui viennent ajouter des fonctionnalités complémentaires comme par exemple : 
 - [p5.plotSVG.js](https://github.com/golanlevin/p5.plotSvg)<br />Librairie qui permet d'exporter des dessins au format svg en respectant la simplicité d'utilisation et d'écriture de [p5.js](https://p5js.org/).
-- [p5.sound.js]()<br />Librairie qui permet de traiter le son. 
-- [ml5.js]()<br />Librairie qui permet (entre autres) : 
+- [p5.sound.js](https://p5js.org/reference/p5.sound/)<br />Librairie qui permet de traiter le son. 
+- [ml5.js](https://ml5js.org/)<br />Librairie qui permet (entre autres) : 
     - détection de visages (face detection)
     - détection de mains (hand tracking)
 
