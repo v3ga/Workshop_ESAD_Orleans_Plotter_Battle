@@ -14,7 +14,18 @@ Entre performance et expérimentation, *Plotter Battle* interroge la frontière 
 
 ## Installation des outils
 ### VSCode
+Visual Studio Code est une application gratuite éditée par Microsoft qui permet d’écrire et d’organiser du code de manière simple et visuelle. C’est un outil pratique pour créer des sites web, expérimenter sur des projets numériques par exemple. Il est léger, personnalisable et offre de nombreuses extensions pour adapter l’interface à vos besoins artistiques.
+
+https://code.visualstudio.com/
+
 ### p5.vscode
+p5.vscode est une extension pour Visual Studio Code qui facilite la création de projets artistiques interactifs avec la bibliothèque [p5.js](https://p5js.org/). <br />
+Pour installer cette extension de code, vous pouvez vous référer à cette vidéo : 
 https://youtu.be/vj9nDja8ZdQ?si=d5z4wxoc5rB0aYqG&t=136
+
+
+### p5.js
+[p5.js](https://p5js.org/) est un outil convivial pour apprendre à coder et créer des programmes interactifs pour les arts visuels, directement dans le navigateur. C'est une bibliothèque JavaScript libre et open source, développée par une communauté inclusive et bienveillante.<br /><br />Ce projet est soutenu par [la fondation Processing](https://processingfoundation.org/), dont le but est est de promouvoir l'apprentissage des logiciels dans le domaine des arts, l'apprentissage artistique dans les domaines liés à la technologie, et de célébrer la diversité des communautés qui rendent ces domaines dynamiques, émancipateurs et innovants.   
+
 
 ## Ressources
