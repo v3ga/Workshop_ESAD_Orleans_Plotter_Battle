@@ -56,13 +56,14 @@ En plus de la librairie [p5.js](https://p5js.org/), nous allons utiliser d'autre
     - détection de mains (hand tracking)
 
 ## Installation du dossier de travail
+
 ### Téléchargement
+Vous pouvez télécharger cette archive en cliquant sur le bouton **Code > Download ZIP** en haut à droit de la liste de fichiers.
+
 ### Créer un nouveau projet
 1. Dupliquer le dossier *exemples/_template_*
 2. Le renommer
 3. Il doit être visible dans votre éditeur de code. Vous pouvez travailler dans le fichier *sketch.js*, qui est « le point d'entrée ».
 
-## Matériel à disposition
-
-
 ## Ressources
+À compléter ...
