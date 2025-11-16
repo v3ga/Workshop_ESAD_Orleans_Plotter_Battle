@@ -6,11 +6,11 @@ const PSEUDO = "Julien"
 // IP (adresse) du serveur d'impression
 const SERVER_IP     = "192.168.1.12";
 const SERVER_PORT   = 3000; // à changer en fonction 
+const DO_CONNECT    = false;
 
 // ----------------------------------------
 // Dimension de la feuille et précision
 const DIM_SHEET = DIM_A4;
-const DPCM = 30;
 
 // ----------------------------------------
 let prevx,prevy;
@@ -19,7 +19,7 @@ let prevx,prevy;
 function setup() 
 {
   let canvas = createCanvas(DIM_SHEET.width*DPCM, DIM_SHEET.height*DPCM);
-  prepare_sketch(canvas, true);
+  prepareSketch(canvas, true, DO_CONNECT);
 }
 
 // ----------------------------------------

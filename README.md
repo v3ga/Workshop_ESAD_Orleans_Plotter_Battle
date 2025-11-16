@@ -33,8 +33,6 @@ Entre performance et expérimentation, *Plotter Battle* interroge la frontière 
 - Plotting.
 - Exposition des dessins.
 
-## Matériel à disposition
-
 ## Installation des outils
 ### VSCode
 Visual Studio Code est une application gratuite éditée par Microsoft qui permet d’écrire et d’organiser du code de manière simple et visuelle. C’est un outil pratique pour créer des sites web, expérimenter sur des projets numériques par exemple. Il est léger, personnalisable et offre de nombreuses extensions pour adapter l’interface à vos besoins artistiques.
@@ -63,5 +61,8 @@ En plus de la librairie [p5.js](https://p5js.org/), nous allons utiliser d'autre
 1. Dupliquer le dossier *exemples/_template_*
 2. Le renommer
 3. Il doit être visible dans votre éditeur de code. Vous pouvez travailler dans le fichier *sketch.js*, qui est « le point d'entrée ».
+
+## Matériel à disposition
+
 
 ## Ressources

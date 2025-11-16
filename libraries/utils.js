@@ -2,7 +2,7 @@ let SERVER_ADDRESS = "";
 let socket, clientId, svgToPlot, bCreateSvg = false, bSaveSvg=false, bPlotSvg=false;
 let widthCM,heightCM;
 // ----------------------------------------
-function prepare_sketch(canvas,noLoop_=true, bBonnect=true)
+function prepareSketch(canvas, noLoop_=true, bBonnect=true)
 {
   if (noLoop_) noLoop();
   canvas.elt.removeAttribute('style');
