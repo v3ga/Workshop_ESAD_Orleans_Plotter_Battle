@@ -1,53 +1,49 @@
 // ----------------------------------------
 // PSEUDO
-const PSEUDO = "Julien"
+const PSEUDO = "Julien"; // à changer
 
 // ----------------------------------------
 // IP (adresse) du serveur d'impression
 const SERVER_IP     = "192.168.1.12";
-const SERVER_PORT   = 3000; // à changer en fonction 
+const SERVER_PORT   = 3000; // à changer en fonction du plotter
 
 // ----------------------------------------
 // Dimension de la feuille et précision
 const DIM_SHEET = DIM_A4;
-const DPCM = 30;
-
-// ----------------------------------------
-let prevx,prevy;
 
 // ----------------------------------------
 function setup() 
 {
   let canvas = createCanvas(DIM_SHEET.width*DPCM, DIM_SHEET.height*DPCM);
-  prepare_sketch(canvas, true);
+  prepare_sketch(canvas, true, false);
 }
 
 // ----------------------------------------
 function draw() 
 {
-  background(255);
-
   beginSVG();
 
   // ----------------------------------------
   // <début> Partie éditable pour le dessin
+  background(255);
 
-  stroke(0);
-  let margin = 0.1*width;
-  for (let i=0;i<100;i++)
-  {
-    let x1 = prevx??random(margin,width-margin);
-    let y1 = prevy??random(margin,height-margin);
-    let x2 = random(margin,width-margin);
-    let y2 = random(margin,height-margin);
-    line(x1,y1,x2,y2);
-    prevx = x2;
-    prevy = y2;
-  }
+  // Dessin dans le quart haut gauche de la zone de dessin 
+  // Coordonnées : x=0, y=0, w=width/2, h=height/2
+  
+  beginDraw(0,0,width/2,height/2,false);
+    circle(widthDraw/2,heightDraw/2,widthDraw-20);
+  endDraw();
+  
+
+  // Dessin dans le quart bas droit de la zone de dessin 
+  // On précise ici la zone en CM plutôt, cela peut être plus facile
+  beginDrawCM(widthCM/2,heightCM/2,widthCM/2,heightCM/2, false);
+    rect(cmToPx(0.5),cmToPx(0.5),widthDraw-cmToPx(1.0),widthDraw-cmToPx(1.0));
+  endDrawCM();
+
 
   // <fin> Partie éditable pour le dessin
   // ----------------------------------------
-
   endSVG();
 }
 
