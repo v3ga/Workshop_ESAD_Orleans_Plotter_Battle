@@ -27,5 +27,11 @@ https://youtu.be/vj9nDja8ZdQ?si=d5z4wxoc5rB0aYqG&t=136
 ### p5.js
 [p5.js](https://p5js.org/) est un outil convivial pour apprendre à coder et créer des programmes interactifs pour les arts visuels, directement dans le navigateur. C'est une bibliothèque JavaScript libre et open source, développée par une communauté inclusive et bienveillante.<br /><br />Ce projet est soutenu par [la fondation Processing](https://processingfoundation.org/), dont le but est est de promouvoir l'apprentissage des logiciels dans le domaine des arts, l'apprentissage artistique dans les domaines liés à la technologie, et de célébrer la diversité des communautés qui rendent ces domaines dynamiques, émancipateurs et innovants.   
 
+## Installation du dossier de travail
+### Téléchargement
+### Créer un nouveau projet
+1. Dupliquer le dossier __template__ 
+2. Le renommer
+3. Il doit être visible dans votre éditeur de code. Vous pouvez travailler dans le fichier sketch.js, qui est « le point d'entrée » de notre programme.
 
 ## Ressources
