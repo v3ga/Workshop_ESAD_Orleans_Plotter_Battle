@@ -31,7 +31,7 @@ How to use p5.js with Visual Studio Code / Tim Rodenbröker](https://youtu.be/vj
 ## Installation du dossier de travail
 ### Téléchargement
 ### Créer un nouveau projet
-1. Dupliquer le dossier *exemples/__template__*
+1. Dupliquer le dossier *exemples/_template_*
 2. Le renommer
 3. Il doit être visible dans votre éditeur de code. Vous pouvez travailler dans le fichier sketch.js, qui est « le point d'entrée » de notre programme.
 
