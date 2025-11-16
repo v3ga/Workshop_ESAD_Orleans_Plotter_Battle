@@ -20,8 +20,9 @@ https://code.visualstudio.com/
 
 ### p5.vscode
 p5.vscode est une extension pour Visual Studio Code qui facilite la création de projets artistiques interactifs avec la bibliothèque [p5.js](https://p5js.org/). <br />
-Pour installer cette extension de code, vous pouvez vous référer à cette vidéo : 
-https://youtu.be/vj9nDja8ZdQ?si=d5z4wxoc5rB0aYqG&t=136
+Pour installer cette extension de code, vous pouvez vous référer à cette vidéo : [
+How to use p5.js with Visual Studio Code / Tim Rodenbröker](https://youtu.be/vj9nDja8ZdQ?si=d5z4wxoc5rB0aYqG&t=136)
+
 
 
 ### p5.js
@@ -30,7 +31,7 @@ https://youtu.be/vj9nDja8ZdQ?si=d5z4wxoc5rB0aYqG&t=136
 ## Installation du dossier de travail
 ### Téléchargement
 ### Créer un nouveau projet
-1. Dupliquer le dossier __template__ 
+1. Dupliquer le dossier *exemples/__template__*
 2. Le renommer
 3. Il doit être visible dans votre éditeur de code. Vous pouvez travailler dans le fichier sketch.js, qui est « le point d'entrée » de notre programme.
 
