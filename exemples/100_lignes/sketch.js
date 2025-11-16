@@ -9,7 +9,7 @@ const SERVER_PORT   = 3000; // à changer en fonction
 
 // ----------------------------------------
 // Dimension de la feuille et précision
-const DIM_SHEET = {width:21.0,height:29.7}; // cm
+const DIM_SHEET = DIM_A4;
 const DPCM = 30;
 
 // ----------------------------------------
