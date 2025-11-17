@@ -13,10 +13,10 @@ import { WebSocketServer } from "ws";
 import { parse } from "url";
 
 // --------------------------------------------
-const __DEBUG__     = true;
+const __DEBUG__     = false;
 
 // --------------------------------------------
-const SERVER_IP     = '192.168.1.11';
+const SERVER_IP     = '192.168.35.112';
 const SERVER_PORT   = 3000;
 
 // --------------------------------------------

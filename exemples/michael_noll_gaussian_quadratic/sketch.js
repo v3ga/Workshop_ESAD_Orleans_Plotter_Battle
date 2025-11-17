@@ -4,9 +4,9 @@ const PSEUDO = "Julien"
 
 // ----------------------------------------
 // IP (adresse) du serveur d'impression
-const SERVER_IP     = "192.168.1.12";
+const SERVER_IP     = "192.168.35.112";
 const SERVER_PORT   = 3000; // à changer en fonction 
-const DO_CONNECT    = false;
+const DO_CONNECT    = true;
 
 // ----------------------------------------
 // Dimension de la feuille et précision
