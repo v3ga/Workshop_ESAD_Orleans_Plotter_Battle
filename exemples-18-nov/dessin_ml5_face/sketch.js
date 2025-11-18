@@ -62,7 +62,25 @@ function draw()
 
   for (let i = 0; i < faces.length; i++) 
   {
-    drawFaceCircles(faces[i], margin, margin, width-2*margin, height-2*margin, 60);
+    /*drawFaceCircles(
+      faces[i], 
+      0, 
+      0, 
+      width/4, 
+      height/4, 
+      10);
+      */
+    drawFaceWith( faces[i], 0,0,width,height, (xFace,yFace)=>{
+
+      push();
+      translate(xFace,yFace)
+      rotate( radians( 100*millis()/1000 ) );
+      rectMode(CENTER);
+      square(0,0,  150*cos( millis()/1000 )  );
+      
+      pop();
+    })
+    
   }
 
   // <fin> Partie éditable pour le dessin

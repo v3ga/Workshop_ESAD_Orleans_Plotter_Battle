@@ -55,7 +55,7 @@ function draw()
 
   // Variables
   let marginCM = 1.0;
-  let nb = 7;
+  let nb = 12;
   let wGridCM = widthCM-2*marginCM;
 
   // Dessin d'une grille de motifs
