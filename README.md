@@ -1,7 +1,7 @@
 # Plotter Battle
 
 ### Mises à jour 18/11/2025
-Télécharger l'archive [Workshop_ESAD_Orleans_Plotter_Battle_updates-18-nov.zip]https://github.com/v3ga/Workshop_ESAD_Orleans_Plotter_Battle/raw/refs/heads/main/archives/Workshop_ESAD_Orleans_Plotter_Battle_updates-18-nov.zip et remplacer les dossiers concernés dans votre installation.
+Télécharger l'archive [Workshop_ESAD_Orleans_Plotter_Battle_updates-18-nov.zip](https://github.com/v3ga/Workshop_ESAD_Orleans_Plotter_Battle/raw/refs/heads/main/archives/Workshop_ESAD_Orleans_Plotter_Battle_updates-18-nov.zip) et remplacer les dossiers concernés dans votre installation.
 
 ## Présentation 
 *Plotter Battle* est un atelier de création collective où les étudiant·es vont travailler par groupe sur des dessins collectifs à travers des machines à tracer. Par le biais du code ou de dispositifs programmés de captures de mouvement (hand / head tracking par exemple), chaque groupe concevra des formes, motifs et gestes graphiques qui dialoguent et se combinent sur la feuille de dessin.<br />
