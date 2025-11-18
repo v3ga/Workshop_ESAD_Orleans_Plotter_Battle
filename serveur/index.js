@@ -16,7 +16,8 @@ import { parse } from "url";
 const __DEBUG__     = false;
 
 // --------------------------------------------
-const SERVER_IP     = '192.168.35.112';
+// const SERVER_IP     = '192.168.35.112'; // esad
+const SERVER_IP     = '192.168.1.11'; // esad
 const SERVER_PORT   = 3000;
 
 // --------------------------------------------

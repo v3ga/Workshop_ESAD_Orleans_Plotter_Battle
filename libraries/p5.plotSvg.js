@@ -536,10 +536,14 @@
   function overrideSquareFunction(){
     _originalSquareFunc = _p5Instance.square;
     _p5Instance.square = function(x, y, s, tl,tr,br,bl) {
+
+      let argumentsCopy = [...arguments];
+
       if (_bRecordingSvg) { 
         let w = s; 
         let h = s; 
 
+        
         if (_p5Instance._renderer._rectMode === 'corner'){
           ;
         } else if (_p5Instance._renderer._rectMode === 'center'){
@@ -570,7 +574,7 @@
           _commands.push({ type: 'rect', x, y, w, h, tl,tr,br,bl, transformMatrix });
         }
       }
-      _originalSquareFunc.apply(this, arguments);
+      _originalSquareFunc.apply(this, argumentsCopy);
     };
   }
 

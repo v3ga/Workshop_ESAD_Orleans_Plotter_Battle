@@ -21,7 +21,7 @@ body
 
 canvas 
 {
-    flex: 1;
+
     display:  block;
     box-shadow: var(--canvas-shadow);
     border-radius: 4px;

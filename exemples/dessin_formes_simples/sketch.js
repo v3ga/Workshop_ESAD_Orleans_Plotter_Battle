@@ -13,10 +13,26 @@ const DO_CONNECT    = false; // se connecte-t-on ou pas ?
 const DIM_SHEET = DIM_A4;
 
 // ----------------------------------------
+// Variables
+var dimPointeCM = 0.05; // 0.5 mm
+var fonte;
+
+// ----------------------------------------
+function preload()
+{
+  console.log('preload');
+  fonte = new SvgFont('data/HersheySans1.svg');
+}
+
+
+// ----------------------------------------
 function setup() 
 {
   let canvas = createCanvas(DIM_SHEET.width*DPCM, DIM_SHEET.height*DPCM);
   prepareSketch(canvas, true, DO_CONNECT);
+  // width,widthCM, ... sont des variables (prédéfinies)
+  console.log(width, height);
+  console.log(widthCM, heightCM);
 }
 
 // ----------------------------------------
@@ -53,11 +69,16 @@ function draw()
   square( cmToPx(21/2), cmToPx(29.7/2), cmToPx(2) );
   */
   
+  fonte.drawString('Du texte', width/2, height/2, 50);
 
-  translate( cmToPx(21/2), cmToPx(29.7/2) ); // décalage des formes 
+  //line(0,height/2,width,height/2);
+  //line(width/2,0,width/2,height);
+
+
+  translate( cmToPx(widthCM/2), cmToPx(heightCM/2) ); // décalage des formes 
   scale(0.5); // divise l'échelle par 2
   rotate( radians(360/2) ); // fait pivoter de 45 degrés
-  strokeWeight( cmToPx(0.05) );
+  strokeWeight( cmToPx(dimPointeCM) );
   noFill();
   beginShape();
   vertex(50,100);

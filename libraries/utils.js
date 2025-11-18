@@ -100,6 +100,46 @@ function textSVG(svgFont,s,x,y,sca=30)
 }
 
 // ----------------------------------------
+function drawSquareGrid(x,y,w,res,cbCell)
+{
+  let d = w/res;
+  push();
+    noFill();
+    translate(x,y);
+    for (let j=0; j<res; j++)
+      for (let i=0; i<res; i++)
+      {
+        let xCell = d*i, yCell = d*j;
+          if (cbCell) 
+            cbCell(xCell,yCell,d,i,j)
+          else 
+            square(xCell,yCell,d);
+      }
+  pop();
+}
+
+// ----------------------------------------
+function drawSquareGridCM(xCM,yCM,wCM,res,cbCell)
+{
+  let dCM = wCM/res;
+  push();
+    noFill();
+    //translate(cmToPx(xCM),cmToPx(yCM));
+    for (let j=0; j<res; j++)
+      for (let i=0; i<res; i++)
+      {
+        let xCellCM = xCM+dCM*i, yCellCM = yCM+dCM*j;
+          push();
+          if (cbCell) 
+            cbCell(xCellCM,yCellCM,dCM,i,j)
+          else 
+            square(xCellCM,yCellCM,dCM);
+          pop();
+      }
+  pop();
+}
+
+// ----------------------------------------
 function connect()
 {
   bConnected = false;
@@ -604,4 +644,44 @@ class SvgFont {
       }
     }
   }
+}
+
+function normalizeFaceKeypoints(vectors)
+{
+  let bb = getBoundingBox(vectors);
+  return vectors.map( k=>createVector( (k.x-bb.x)/bb.width, (k.y-bb.y)/bb.height ) )
+}
+
+function getBoundingBox(vectors) 
+{
+  let minX = Infinity, maxX = -Infinity;
+  let minY = Infinity, maxY = -Infinity;
+
+  for (let v of vectors) {
+    minX = min(minX, v.x);
+    maxX = max(maxX, v.x);
+    minY = min(minY, v.y);
+    maxY = max(maxY, v.y);
+  }
+
+  return { x: minX, y: minY, width: maxX - minX, height: maxY - minY };
+}
+
+function drawFaceWith(face, x,y,w,h, cbDraw)
+{
+    if (isFunction(cbDraw))
+      normalizeFaceKeypoints(face.keypoints??face)
+      .forEach( k=> cbDraw( map(k.x,0,1,x,x+w), map(k.y,0,1,y,y+h) ) );
+}
+
+function drawFaceCircles(face,x,y,w,h,d=20)
+{
+    normalizeFaceKeypoints(face.keypoints??face)
+    .forEach( k=>circle( map(k.x,0,1,x,x+w), map(k.y,0,1,y,y+h) , isFunction(d) ? d() : d) );
+}
+
+
+function faceCopyPoints(keypoints)
+{
+  return keypoints.map(k=>k.copy())
 }
