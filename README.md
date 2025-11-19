@@ -1,13 +1,13 @@
 # Plotter Battle
 
-### Mises à jour 18/11/2025
+## Mises à jour 18/11/2025
 Télécharger l'archive [Workshop_ESAD_Orleans_Plotter_Battle_updates_18_nov_bis.zip](https://github.com/v3ga/Workshop_ESAD_Orleans_Plotter_Battle/raw/refs/heads/main/archives/Workshop_ESAD_Orleans_Plotter_Battle_updates_18_nov_bis.zip) et remplacer les dossiers concernés dans votre installation.
 
-### Mises à jour 19/11.205
-## Installation pour AxiDraw
+## Mises à jour 19/11.205
+### Installation pour AxiDraw
 Suivre le tutoriel ici pour votre plateforme : https://wiki.evilmadscientist.com/Axidraw_Software_Installation
 
-## Installation pour iDraw
+### Installation pour iDraw
 Suivre le tutoriel ici pour votre plateforme : https://drive.google.com/drive/folders/1mDPv3P24jBe4Dkz6jCn9UlGHwQM1bb9V
 
 ## Présentation 
