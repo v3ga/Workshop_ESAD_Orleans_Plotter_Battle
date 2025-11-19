@@ -1,7 +1,14 @@
 # Plotter Battle
 
-### Mises à jour 18/11/2025
+## Mises à jour 18/11/2025
 Télécharger l'archive [Workshop_ESAD_Orleans_Plotter_Battle_updates_18_nov_bis.zip](https://github.com/v3ga/Workshop_ESAD_Orleans_Plotter_Battle/raw/refs/heads/main/archives/Workshop_ESAD_Orleans_Plotter_Battle_updates_18_nov_bis.zip) et remplacer les dossiers concernés dans votre installation.
+
+## Mises à jour 19/11/2025
+### Installation pour AxiDraw
+Suivre le tutoriel ici pour votre plateforme : https://wiki.evilmadscientist.com/Axidraw_Software_Installation
+
+### Installation pour iDraw
+Suivre le tutoriel ici pour votre plateforme : https://drive.google.com/drive/folders/1mDPv3P24jBe4Dkz6jCn9UlGHwQM1bb9V
 
 ## Présentation 
 *Plotter Battle* est un atelier de création collective où les étudiant·es vont travailler par groupe sur des dessins collectifs à travers des machines à tracer. Par le biais du code ou de dispositifs programmés de captures de mouvement (hand / head tracking par exemple), chaque groupe concevra des formes, motifs et gestes graphiques qui dialoguent et se combinent sur la feuille de dessin.<br />
