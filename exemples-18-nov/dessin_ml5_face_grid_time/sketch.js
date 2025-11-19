@@ -55,7 +55,7 @@ function draw()
 
   // Variables
   let marginCM = 1.0;
-  let nb = 12;
+  let nb = 5;
   let wGridCM = widthCM-2*marginCM;
 
   // Dessin d'une grille de motifs
@@ -85,8 +85,9 @@ function draw()
           // Dessin les points du visage 
           drawFaceWith( facesTime[offset],x,y,d,d, (xPointFace, yPointFace)=>
           {
+              let amp = map(j,0,nb-1,0,10);
               // xPointFace, yPointFace sont à l'intérieur du carré (x,y,d,d)
-              circle( xPointFace, yPointFace, 2 )
+              circle( xPointFace+random(-amp,amp), yPointFace+random(-amp,amp), 2 )
           })
         }
       }

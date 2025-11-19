@@ -11,7 +11,7 @@ const MODE_SIMPLE   = false;
 
 // ----------------------------------------
 // Dimension de la feuille et précision
-const DIM_SHEET = DIM_A3;
+const DIM_SHEET = DIM_A4;
 
 
 // ----------------------------------------
@@ -20,6 +20,7 @@ let video;
 let faces = [];
 let options = { maxFaces: 1, refineLandmarks: false, flipHorizontal: true };
 
+let voronoi, sites;
 
 // ----------------------------------------
 function preload() {
@@ -37,6 +38,7 @@ function setup()
   video.hide();
   // Détection de visage
   faceMesh.detectStart(video, gotFaces);
+  voronoi = new Voronoi();
 }
 
 // ----------------------------------------
@@ -58,28 +60,31 @@ function draw()
   noFill();
   stroke(0);
 
-  // Variables
-  let marginCM = 1.0;
-  let nb = 8;
-  let wGridCM = widthCM-2*marginCM;
+  let margin = cmToPx(2.0);
 
-  // Dessin d'une grille de motifs
-  if (faces.length>0)
+  sites = [];
+  for (let i = 0; i < faces.length; i++) 
   {
-    drawSquareGridCM(
-      marginCM, // x
-      (heightCM-wGridCM)/2, // petit calcul pour centrer
-      wGridCM, // largeur de la feuille - 2 * marge
-      nb,
-      // Dessin de la cellule
-      (xCM,yCM,dCM,i,j)=>
-      {
-        drawFaceCircles(faces[0],cmToPx(xCM), cmToPx(yCM), cmToPx(dCM), cmToPx(dCM), 2);
-      }
-    );
-
+    drawFaceWith( faces[i], margin,margin,width-margin,height-margin, (xFace,yFace) =>
+    {
+      sites.push( {x:xFace,y:yFace} );
+    })
+    
   }
+  
+  let diagram = voronoi.compute(sites, {xl:margin,xr:width-margin,yt:margin,yb:height-margin});
 
+  
+
+  let edges = diagram.edges,nEdges = edges.length;
+  if (nEdges) 
+  {
+    while (nEdges--) 
+    {
+      edge = edges[nEdges];
+      line(edge.va.x,edge.va.y, edge.vb.x, edge.vb.y);
+    }
+  }
 
   // <fin> Partie éditable pour le dessin
   // ----------------------------------------
