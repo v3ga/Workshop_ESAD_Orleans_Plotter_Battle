@@ -671,7 +671,7 @@ function drawFaceWith(face, x,y,w,h, cbDraw)
 {
     if (isFunction(cbDraw))
       normalizeFaceKeypoints(face.keypoints??face)
-      .forEach( k=> cbDraw( map(k.x,0,1,x,x+w), map(k.y,0,1,y,y+h) ) );
+      .forEach( (k,index)=> cbDraw( map(k.x,0,1,x,x+w), map(k.y,0,1,y,y+h), index ) );
 }
 
 function drawFaceCircles(face,x,y,w,h,d=20)
