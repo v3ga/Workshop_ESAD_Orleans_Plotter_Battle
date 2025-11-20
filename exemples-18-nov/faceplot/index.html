@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Face → SVG (Plotter)</title>
+
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 18px; position: relative; }
+
+    /* 왼쪽: video + canvas */
+    #left {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #video {
+      border:1px solid #444;
+      width:380px;
+      height:auto;
+      transform: scaleX(-1); /* 거울 모드 적용 */
+    }
+
+    #canvas {
+      border:1px solid #444;
+      width:1200px;
+      height:1696px;
+    }
+
+    /* 오른쪽 하단 버튼 메뉴 */
+    #menu {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(255,255,255,0.95);
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    button {
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    #info { margin-top: 8px; color:#333; font-size: 14px; }
+  </style>
+
+  <!-- MediaPipe FaceMesh + camera utils -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+</head>
+<body>
+  <h2>Face → Contour → SVG (Plotter)</h2>
+
+  <div id="left">
+    <video id="video" autoplay playsinline muted></video>
+    <canvas id="canvas" width="1200" height="1696"></canvas>
+  </div>
+
+  <!-- 오른쪽 하단 버튼 메뉴 -->
+  <div id="menu">
+    <button id="btn-start">Ouvrir la caméra</button>
+    <button id="btn-stop">Arrêter</button>
+    <button id="btn-capture">Capturer (figer)</button>
+    <button id="btn-save-svg">Sauvegarder .svg</button>
+    <button id="btn-plot-svg">Plotter .svg</button>
+    <button id="btn-clear">Effacer</button>
+    <div id="info">Prêt. Utilisez "Ouvrir la caméra".</div>
+  </div>
+
+  <script src="faceplot.js"></script>
+</body>
+</html>
