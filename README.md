@@ -1,19 +1,11 @@
 # Plotter Battle
-
-## Mises à jour 18/11/2025
-Télécharger l'archive [Workshop_ESAD_Orleans_Plotter_Battle_updates_18_nov_bis.zip](https://github.com/v3ga/Workshop_ESAD_Orleans_Plotter_Battle/raw/refs/heads/main/archives/Workshop_ESAD_Orleans_Plotter_Battle_updates_18_nov_bis.zip) et remplacer les dossiers concernés dans votre installation.
-
-## Mises à jour 19/11/2025
-### Installation pour AxiDraw
-Suivre le tutoriel ici pour votre plateforme : https://wiki.evilmadscientist.com/Axidraw_Software_Installation
-
-### Installation pour iDraw
-Suivre le tutoriel ici pour votre plateforme : https://drive.google.com/drive/folders/1mDPv3P24jBe4Dkz6jCn9UlGHwQM1bb9V
-
 ## Présentation 
 *Plotter Battle* est un atelier de création collective où les étudiant·es vont travailler par groupe sur des dessins collectifs à travers des machines à tracer. Par le biais du code ou de dispositifs programmés de captures de mouvement (hand / head tracking par exemple), chaque groupe concevra des formes, motifs et gestes graphiques qui dialoguent et se combinent sur la feuille de dessin.<br />
 Cet atelier est aussi un espace d’apprentissage de la programmation créative : les participant·es découvrent comment le code peut devenir un médium visuel, expressif et collaboratif.<br />
 Entre performance et expérimentation, *Plotter Battle* interroge la frontière entre geste humain et écriture algorithmique, entre art génératif et dessin mécanique.Un moment collectif où la machine devient partenaire, instrument et terrain de jeu partagé.
+
+## Travaux des étudiants
+https://drive.google.com/drive/u/0/folders/1W4Fm1C3xwJe0nuJJ0Lc4HRvoCh1HWxjP
 
 ## Déroulé
 ### Journée 01
@@ -34,10 +26,21 @@ Entre performance et expérimentation, *Plotter Battle* interroge la frontière 
 ### Journée 02
 - Révision des concepts de la veille.
 - Utilisation de librairies additionnelles.
-- Idéations, discussions autour des idées. 
+- Idéations, discussions autour des idées.
+
+#### Mises à jour 18/11/2025
+Télécharger l'archive [Workshop_ESAD_Orleans_Plotter_Battle_updates_18_nov_bis.zip](https://github.com/v3ga/Workshop_ESAD_Orleans_Plotter_Battle/raw/refs/heads/main/archives/Workshop_ESAD_Orleans_Plotter_Battle_updates_18_nov_bis.zip) et remplacer les dossiers concernés dans votre installation.
 
 ### Journée 03
 - Plotting.
+
+#### Mises à jour 19/11/2025
+##### Installation pour AxiDraw
+Suivre le tutoriel ici pour votre plateforme : https://wiki.evilmadscientist.com/Axidraw_Software_Installation
+
+##### Installation pour iDraw
+Suivre le tutoriel ici pour votre plateforme : https://drive.google.com/drive/folders/1mDPv3P24jBe4Dkz6jCn9UlGHwQM1bb9V
+
 
 ### Journée 04
 - Plotting.
