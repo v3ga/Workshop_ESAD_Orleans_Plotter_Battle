@@ -10,6 +10,7 @@ const btnCapture = document.getElementById('btn-capture');
 const btnSaveSVG = document.getElementById('btn-save-svg');
 const btnPlotSVG = document.getElementById('btn-plot-svg');
 const btnClear = document.getElementById('btn-clear');
+const btnFS = document.getElementById('btn-fs');
 
 // --- 상태 ---
 let cameraWrapper = null;
@@ -17,12 +18,17 @@ let latestContours = [];
 let frozenContours = []; // 누적 저장
 
 // --- 서버 연결 정보 ---
-const SERVER_IP = "192.168.35.112";
+const SERVER_IP = "192.168.36.64";
 const SERVER_PORT = 3000;
 
 // --- 캔버스 A4 ---
+/*
 canvas.width = 1200;
 canvas.height = 1696;
+*/
+canvas.width = 1696;
+canvas.height = 1200;
+canvas.style = 'height:100%;width:auto';
 
 // --- MediaPipe FaceMesh 초기화 ---
 const faceMesh = new FaceMesh({
@@ -125,7 +131,7 @@ function generateSVG_mm(){
   const contours = frozenContours.length > 0 ? frozenContours : latestContours;
   if(!contours || contours.length===0) return '';
 
-  const mmWidth = 210, mmHeight = 297;
+  const mmWidth = 297, mmHeight = 210;
   let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${mmWidth}mm" height="${mmHeight}mm" viewBox="0 0 ${mmWidth} ${mmHeight}">`;
 
   contours.forEach(contour=>{
@@ -145,6 +151,7 @@ function generateSVG_mm(){
   });
 
   // --- 서명 추가 (회색 / 얇게 / 세리프 / 우하단) ---
+  /*
   svg += `
     <text x="${mmWidth - 5}" y="${mmHeight - 5}"
           font-size="6"
@@ -155,7 +162,7 @@ function generateSVG_mm(){
       Jihu KIM
     </text>
   `;
-
+*/
   svg += `</svg>`;
   return svg;
 }
@@ -174,15 +181,28 @@ function downloadSVG_mm(){
 }
 
 // --- 서버 업로드 ---
-function plotSVGtoServer_mm(){
+function plotSVGtoServer_mm()
+{
   const svg = generateSVG_mm();
   if(!svg) return;
-  fetch(`http://${SERVER_IP}:${SERVER_PORT}/upload`,{
+  fetch(`http://${SERVER_IP}:${SERVER_PORT}/plot`,
+  {
     method:'POST',
-    headers:{'Content-Type':'image/svg+xml'},
-    body: svg
-  }).then(r=>info.textContent='Envoyé au plotter!')
-    .catch(e=>info.textContent='Erreur serveur');
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({'svg' : svg, 'id' : 1234})
+  })
+  .then( response=>response.json() )
+  .then( result => {
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    latestContours=[]; 
+    frozenContours=[];
+
+  } )
+  .catch(e=>
+  {
+    console.warn(e);
+  });
 }
 
 // --- 버튼 이벤트 ---
@@ -221,3 +241,29 @@ btnClear.onclick=()=>{
   frozenContours=[];
   info.textContent='Canvas effacé';
 };
+
+btnFS.onclick=()=>{
+  goFullscreen();
+}
+
+
+function goFullscreen() {
+  const elem = document.documentElement; // ou n'importe quel élément
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { // Safari
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { // IE11
+    elem.msRequestFullscreen();
+  }
+}
+
+function exitFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { // Safari
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { // IE11
+    document.msExitFullscreen();
+  }
+}

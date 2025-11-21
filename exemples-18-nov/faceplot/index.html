@@ -6,13 +6,13 @@
   <title>Face → SVG (Plotter)</title>
 
   <style>
-    body { font-family: system-ui, sans-serif; margin: 18px; position: relative; }
+    body { font-family: system-ui, sans-serif; position: relative; }
+    h2,video{display:none}
 
     /* 왼쪽: video + canvas */
     #left {
       display: flex;
       flex-direction: column;
-      gap: 12px;
     }
 
     #video {
@@ -23,8 +23,8 @@
     }
 
     #canvas {
-      border:1px solid #444;
-      width:1200px;
+/*      border:1px solid #444;
+*/      width:1200px;
       height:1696px;
     }
 
@@ -54,8 +54,8 @@
   </style>
 
   <!-- MediaPipe FaceMesh + camera utils -->
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="face_mesh.js"></script>
+  <script src="camera_utils.js"></script>
 </head>
 <body>
   <h2>Face → Contour → SVG (Plotter)</h2>
@@ -73,6 +73,7 @@
     <button id="btn-save-svg">Sauvegarder .svg</button>
     <button id="btn-plot-svg">Plotter .svg</button>
     <button id="btn-clear">Effacer</button>
+    <button id="btn-fs">Plein écran</button>
     <div id="info">Prêt. Utilisez "Ouvrir la caméra".</div>
   </div>
 

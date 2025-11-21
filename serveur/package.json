@@ -6,9 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "start:3000": "PORT=3000 node index.js",
-    "start:3001": "PORT=3001 node index.js"    
+    "start": "node index_faces.js",
+    "start:3000": "PORT=3000 node index_faces.js",
+    "start:3001": "PORT=3001 node index_faces.js"
   },
   "author": "",
   "license": "ISC",

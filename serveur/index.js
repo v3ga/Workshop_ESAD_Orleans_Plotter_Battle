@@ -13,11 +13,11 @@ import { WebSocketServer } from "ws";
 import { parse } from "url";
 
 // --------------------------------------------
-const __DEBUG__     = false;
+const __DEBUG__     = true;
 
 // --------------------------------------------
 // const SERVER_IP     = '192.168.35.112'; // esad
-const SERVER_IP     = '192.168.1.11'; // esad
+const SERVER_IP     = '192.168.36.64'; // esad
 const SERVER_PORT   = 3000;
 
 // --------------------------------------------
@@ -96,6 +96,14 @@ function processQueue()
     });
 
 }
+
+
+// --------------------------------------------
+app.post("/plot_faces", (req, res) => 
+{    
+    const { svg, id } = req.body;
+
+});
 
 // --------------------------------------------
 app.post("/plot", (req, res) => 
